@@ -218,8 +218,10 @@ export default function Home() {
   };
 
   const renderFactionArcs = () => {
-    const innerR = 420;
-    const outerR = 440;
+    // Place arcs INSIDE the node ring to avoid overlap with character circles
+    const innerR = 340;
+    const outerR = 360;
+    const labelR = 300; // Labels sit even further inside
     return Object.entries(factionArcs).map(([faction, arc]) => {
       const x1i = Math.cos(arc.startAngle) * innerR;
       const y1i = Math.sin(arc.startAngle) * innerR;
@@ -231,23 +233,31 @@ export default function Home() {
       const y2o = Math.sin(arc.endAngle) * outerR;
       const largeArc = arc.endAngle - arc.startAngle > Math.PI ? 1 : 0;
 
+      // Compute label angle and position — rotate text along the arc
+      const midAngle = (arc.startAngle + arc.endAngle) / 2;
+      const labelAngleDeg = midAngle * 180 / Math.PI;
+      const flipLabel = labelAngleDeg > 90 || labelAngleDeg < -90;
+      const lx = Math.cos(midAngle) * labelR;
+      const ly = Math.sin(midAngle) * labelR;
+
       return (
         <g key={faction}>
           <path
             d={`M ${x1i} ${y1i} A ${innerR} ${innerR} 0 ${largeArc} 1 ${x2i} ${y2i} L ${x2o} ${y2o} A ${outerR} ${outerR} 0 ${largeArc} 0 ${x1o} ${y1o} Z`}
             fill={arc.color}
-            opacity={0.25}
+            opacity={0.2}
           />
-          {/* Faction label */}
+          {/* Faction label — placed inside the circle */}
           <text
-            x={Math.cos((arc.startAngle + arc.endAngle) / 2) * (outerR + 25)}
-            y={Math.sin((arc.startAngle + arc.endAngle) / 2) * (outerR + 25)}
+            x={lx}
+            y={ly}
             fill={arc.color}
-            fontSize="11"
-            fontWeight="600"
+            fontSize="13"
+            fontWeight="700"
             textAnchor="middle"
             dominantBaseline="middle"
-            style={{ letterSpacing: '0.08em', textTransform: 'uppercase' } as React.CSSProperties}
+            transform={`rotate(${flipLabel ? labelAngleDeg + 180 : labelAngleDeg}, ${lx}, ${ly})`}
+            style={{ letterSpacing: '0.12em', textTransform: 'uppercase', opacity: 0.7 } as React.CSSProperties}
           >
             {faction}
           </text>
