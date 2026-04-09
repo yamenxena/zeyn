@@ -1,52 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-/* ══ MARVEL METAVERSE DESIGN TOKENS ════════════════════════════════ */
 :root {
-  --bg-canvas: #090a0f;
-  --bg-surface: #12141d;
-  --bg-overlay: #1c1f2b;
-  --bg-inset: #05060a;
-  
-  --border-default: #383c4f;
-  --border-muted: #252835;
-  --border-subtle: #1a1c27;
-  
-  --text-primary: #f0f2f7;
-  --text-secondary: #a9b1c7;
-  --text-muted: #6b728e;
-  --text-on-accent: #ffffff;
-  
-  --marvel-red: #e62429;
-  --marvel-red-glow: rgba(230, 36, 41, 0.3);
-  --marvel-gold: #f0bc2e;
-  --marvel-gold-glow: rgba(240, 188, 46, 0.3);
-  
-  --accent-unknown: #9b59b6;
-  --accent-canonical: #3498db;
-  
-  --node-bg: #1c1f2b;
-  --node-selected: #2a2e40;
-  
-  --font-sans: 'Inter', -apple-system, sans-serif;
-  
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  
-  --transition-fast: 120ms ease;
-  --navbar-height: 56px;
+  --bg-color: #050505;
+  --panel-bg: rgba(20, 20, 20, 0.7);
+  --border-default: rgba(255, 255, 255, 0.1);
+  --border-muted: rgba(255, 255, 255, 0.05);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --marvel-red: #E23636;
+  --marvel-red-glow: rgba(226, 54, 54, 0.4);
+  --marvel-gold: #F0A800;
+  --marvel-gold-glow: rgba(240, 168, 0, 0.4);
+  --glass-blur: blur(24px);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font-family: var(--font-sans);
-  background: var(--bg-canvas);
+  background-color: var(--bg-color);
   color: var(--text-primary);
-  overflow: hidden;
-  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  overflow: hidden; /* App is a Canvas SPA */
 }
 
-/* ══ APP LAYOUT ════════════════════════════════════════════════════ */
+/* Base App Layout */
 .app-container {
   display: flex;
   flex-direction: column;
@@ -54,28 +33,51 @@ body {
   width: 100vw;
 }
 
+/* Top Ribbon */
 .ribbon {
-  height: var(--navbar-height);
-  background: rgba(18, 20, 29, 0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-muted);
+  height: 56px;
+  background: var(--panel-bg);
+  backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--border-default);
   display: flex;
   align-items: center;
-  padding: 0 24px;
   justify-content: space-between;
+  padding: 0 24px;
+  z-index: 100;
 }
 
 .ribbon-brand {
-  font-weight: 700;
-  font-size: 20px;
-  letter-spacing: -0.02em;
   display: flex;
-  gap: 8px;
   align-items: center;
+  gap: 12px;
 }
 
-.brand-zeyn { color: var(--marvel-red); }
-.brand-metaverse { color: var(--text-primary); }
+.brand-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(226, 54, 54, 0.5);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-zeyn {
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  font-size: 14px;
+  color: var(--marvel-red);
+}
+
+.brand-metaverse {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
 .ribbon-controls {
   display: flex;
@@ -83,205 +85,287 @@ body {
 }
 
 .btn {
-  background: var(--bg-overlay);
-  border: 1px solid var(--border-default);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-muted);
   color: var(--text-primary);
-  padding: 6px 16px;
-  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 12px;
   cursor: pointer;
-  transition: all var(--transition-fast);
-  font-size: 13px;
-  font-weight: 500;
-}
-.btn:hover { background: var(--border-muted); }
-.btn-primary {
-  background: var(--marvel-red);
-  border-color: var(--marvel-red);
-}
-.btn-primary:hover {
-  background: #ff3338;
-  box-shadow: 0 0 15px var(--marvel-red-glow);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
+.btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--border-default);
+}
+
+/* Infinite Viewport Layout */
 .workspace {
-  display: flex;
   flex: 1;
   position: relative;
   overflow: hidden;
+  touch-action: none; /* Critical for custom pointer/wheel dragging */
+  cursor: grab;
+  background: radial-gradient(circle at center, #111 0%, #000 100%);
 }
 
-.canvas-area {
-  flex: 1;
-  position: relative;
-  background: radial-gradient(circle at center, var(--bg-surface) 0%, var(--bg-canvas) 100%);
+.world-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  will-change: transform;
 }
 
-/* ══ CHARACTER CARD INFO PANEL ═════════════════════════════════════ */
+.edges-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.circuit-path {
+  fill: none;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  opacity: 0.6;
+}
+
+.mock-node {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #222;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid var(--border-default);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+
+.mock-node:hover {
+  transform: scale(1.1);
+  z-index: 10;
+  box-shadow: 0 8px 30px var(--marvel-red-glow);
+  border-color: var(--marvel-red);
+}
+
+.mock-node.is-selected {
+  border-color: var(--marvel-gold);
+  box-shadow: 0 0 30px var(--marvel-gold-glow);
+  transform: scale(1.2);
+  z-index: 20;
+}
+
+.mock-node.is-unknown {
+  border-style: dashed;
+  border-color: rgba(255,255,255,0.4);
+}
+
+/* Cinematic Character Panel */
 .character-panel {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 320px;
-  background: rgba(28, 31, 43, 0.85);
-  backdrop-filter: blur(16px);
+  top: 24px;
+  right: 24px;
+  width: 420px;
+  height: calc(100vh - 104px);
+  background: var(--panel-bg);
+  backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-default);
-  border-radius: var(--radius-lg);
+  border-radius: 12px;
+  box-shadow: -10px 0 40px rgba(0,0,0,0.5);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
   animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes slideIn {
-  from { opacity: 0; transform: translateX(20px); }
-  to { opacity: 1; transform: translateX(0); }
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
 
-.character-panel.is-canonical { border-top: 4px solid var(--accent-canonical); }
-.character-panel.is-unknown { border-top: 4px solid var(--accent-unknown); }
+.character-panel.is-canonical {
+  border-top: 2px solid var(--marvel-gold);
+}
+
+.character-panel.is-unknown {
+  border-top: 2px solid var(--marvel-red);
+}
 
 .close-btn {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  background: none;
+  top: 16px;
+  right: 16px;
+  background: rgba(0,0,0,0.5);
+  color: var(--text-secondary);
   border: none;
-  color: var(--text-muted);
-  font-size: 20px;
-  cursor: pointer;
-}
-.close-btn:hover { color: var(--text-primary); }
-
-.panel-header {
-  padding: 24px 20px 16px;
-  border-bottom: 1px solid var(--border-muted);
-  display: flex;
-  gap: 16px;
-  align-items: center;
-}
-
-.char-portrait {
-  width: 72px;
-  height: 72px;
+  font-size: 24px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--border-default);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.panel-header-text {
+.close-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.1);
+}
+
+.cinematic-banner {
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  padding: 24px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
 }
 
 .status-badge {
   font-size: 10px;
   letter-spacing: 0.1em;
-  font-weight: 700;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  width: fit-content;
   margin-bottom: 8px;
 }
-.is-canonical .status-badge { color: var(--accent-canonical); }
-.is-unknown .status-badge { color: var(--accent-unknown); }
 
 .char-name {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 4px;
-  color: var(--marvel-gold);
-}
-.char-real-name {
-  font-size: 14px;
-  color: var(--text-secondary);
-  font-weight: 400;
-}
-.char-universe {
-  font-size: 12px;
-  color: var(--text-muted);
-  margin-top: 8px;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0;
 }
 
-.panel-body { padding: 20px; }
+.char-real-name {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.char-universe {
+  font-size: 12px;
+  color: var(--marvel-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.panel-body {
+  padding: 24px;
+  flex: 1;
+  overflow-y: auto;
+}
+
 .char-desc {
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.6;
   color: var(--text-secondary);
   margin-bottom: 24px;
 }
 
 .section-title {
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
-  margin-bottom: 12px;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-muted);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .metrics-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
   margin-bottom: 24px;
 }
 
 .metric-row {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
-.metric-label { font-size: 11px; color: var(--text-secondary); }
 
-.metric-circle-wrapper { position: relative; width: 40px; height: 40px; }
-.metric-bg { fill: none; stroke: var(--border-muted); stroke-width: 3; }
-.metric-fg { 
-  fill: none; 
-  stroke: var(--marvel-red); 
-  stroke-width: 3; 
-  stroke-linecap: round;
-  transform: rotate(-90deg);
-  transform-origin: 50% 50%;
-  transition: stroke-dashoffset 0.8s ease;
+.metric-circle-wrapper {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.metric-svg {
+  position: relative;
+  transform: rotate(-90deg);
+}
+
+.metric-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 4;
+}
+
+.metric-fg {
+  fill: none;
+  stroke: var(--marvel-red);
+  stroke-width: 4;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
 .metric-val {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  display: flex; 
-  align-items: center; 
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.is-unknown .metric-fg { stroke: var(--accent-unknown); }
+.metric-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
 
 .appearance-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
+
 .app-tag {
-  background: var(--bg-overlay);
-  border: 1px solid var(--border-muted);
-  padding: 4px 8px;
-  border-radius: 4px;
   font-size: 11px;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-muted);
+  border-radius: 4px;
   color: var(--text-secondary);
 }
 
-/* Base styles for the minimal Canvas mock */
-.mock-node {
-  position: absolute;
-  width: 12px; height: 12px;
-  background: var(--marvel-gold);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-.mock-node:hover { transform: scale(1.5); }
-.mock-node.is-unknown { background: var(--accent-unknown); }
-.mock-edge {
-  position: absolute;
-  background: var(--border-default);
-  transform-origin: left center;
+.chronological-debut {
+  background: rgba(240, 168, 0, 0.1);
+  color: var(--marvel-gold);
+  border-color: rgba(240, 168, 0, 0.2);
 }

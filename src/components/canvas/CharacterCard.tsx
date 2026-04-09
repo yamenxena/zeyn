@@ -7,28 +7,28 @@ type Props = {
   onClose: () => void;
 };
 
-// Extremely simple Ratio Circle for metrics (1-7 scale)
+// Ratio Circle for metrics (1-7 scale) with a sci-fi tech overlay vibe
 const RatioCircle = ({ label, value }: { label: string, value: number }) => {
   const fraction = value / 7;
-  const radius = 16;
+  const radius = 20;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - fraction * circumference;
   
   return (
     <div className="metric-row">
-      <span className="metric-label">{label}</span>
       <div className="metric-circle-wrapper">
-        <svg className="metric-svg" width="40" height="40">
-          <circle className="metric-bg" cx="20" cy="20" r={radius} />
+        <svg className="metric-svg" width="48" height="48">
+          <circle className="metric-bg" cx="24" cy="24" r={radius} />
           <circle 
             className="metric-fg" 
-            cx="20" cy="20" r={radius} 
+            cx="24" cy="24" r={radius} 
             strokeDasharray={circumference} 
             strokeDashoffset={offset} 
           />
         </svg>
         <span className="metric-val">{value}</span>
       </div>
+      <span className="metric-label">{label}</span>
     </div>
   );
 };
@@ -40,11 +40,11 @@ export default function CharacterCardPanel({ data, onClose }: Props) {
     <div className={`character-panel ${data.isUnknown ? 'is-unknown' : 'is-canonical'}`}>
       <button className="close-btn" onClick={onClose}>×</button>
       
-      <div className="panel-header">
-        {data.imageFallback && (
-          <img src={data.imageFallback} alt={data.name} className="char-portrait" />
-        )}
-        <div className="panel-header-text">
+      <div 
+        className="cinematic-banner" 
+        style={{ backgroundImage: data.imageFallback ? `url(${data.imageFallback})` : 'none' }}
+      >
+        <div className="banner-overlay">
           <div className="status-badge">
             {data.isUnknown ? 'UNKNOWN ENTITY' : 'CANONICAL'}
           </div>
@@ -59,12 +59,12 @@ export default function CharacterCardPanel({ data, onClose }: Props) {
 
         <h3 className="section-title">Power Grid (1-7)</h3>
         <div className="metrics-grid">
-          <RatioCircle label="Int" value={data.metrics.intelligence} />
-          <RatioCircle label="Str" value={data.metrics.strength} />
-          <RatioCircle label="Spd" value={data.metrics.speed} />
-          <RatioCircle label="Dur" value={data.metrics.durability} />
-          <RatioCircle label="Ene" value={data.metrics.energyProjection} />
-          <RatioCircle label="Fgt" value={data.metrics.fightingSkills} />
+          <RatioCircle label="Intelligence" value={data.metrics.intelligence} />
+          <RatioCircle label="Strength" value={data.metrics.strength} />
+          <RatioCircle label="Speed" value={data.metrics.speed} />
+          <RatioCircle label="Durability" value={data.metrics.durability} />
+          <RatioCircle label="Energy Projection" value={data.metrics.energyProjection} />
+          <RatioCircle label="Fighting Skills" value={data.metrics.fightingSkills} />
         </div>
 
         <h3 className="section-title">Appearances</h3>
@@ -72,7 +72,7 @@ export default function CharacterCardPanel({ data, onClose }: Props) {
           {data.movies.length > 0 && <div className="app-tag">Movies: {data.movies.length}</div>}
           {data.series.length > 0 && <div className="app-tag">Series: {data.series.length}</div>}
           {data.magazines.length > 0 && <div className="app-tag">Mags: {data.magazines.length}</div>}
-          <div className="app-tag">Debut: {data.chronologicalDebut}</div>
+          <div className="app-tag chronological-debut">Debut: {data.chronologicalDebut}</div>
         </div>
       </div>
     </div>
