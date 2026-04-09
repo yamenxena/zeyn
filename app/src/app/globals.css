@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ══ MARVEL METAVERSE DESIGN TOKENS ════════════════════════════════ */
+:root {
+  --bg-canvas: #090a0f;
+  --bg-surface: #12141d;
+  --bg-overlay: #1c1f2b;
+  --bg-inset: #05060a;
+  
+  --border-default: #383c4f;
+  --border-muted: #252835;
+  --border-subtle: #1a1c27;
+  
+  --text-primary: #f0f2f7;
+  --text-secondary: #a9b1c7;
+  --text-muted: #6b728e;
+  --text-on-accent: #ffffff;
+  
+  --marvel-red: #e62429;
+  --marvel-red-glow: rgba(230, 36, 41, 0.3);
+  --marvel-gold: #f0bc2e;
+  --marvel-gold-glow: rgba(240, 188, 46, 0.3);
+  
+  --accent-unknown: #9b59b6;
+  --accent-canonical: #3498db;
+  
+  --node-bg: #1c1f2b;
+  --node-selected: #2a2e40;
+  
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  
+  --transition-fast: 120ms ease;
+  --navbar-height: 56px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-canvas);
+  color: var(--text-primary);
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* ══ APP LAYOUT ════════════════════════════════════════════════════ */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.ribbon {
+  height: var(--navbar-height);
+  background: rgba(18, 20, 29, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-muted);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  justify-content: space-between;
+}
+
+.ribbon-brand {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.brand-zeyn { color: var(--marvel-red); }
+.brand-metaverse { color: var(--text-primary); }
+
+.ribbon-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  background: var(--bg-overlay);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  padding: 6px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: 13px;
+  font-weight: 500;
+}
+.btn:hover { background: var(--border-muted); }
+.btn-primary {
+  background: var(--marvel-red);
+  border-color: var(--marvel-red);
+}
+.btn-primary:hover {
+  background: #ff3338;
+  box-shadow: 0 0 15px var(--marvel-red-glow);
+}
+
+.workspace {
+  display: flex;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.canvas-area {
+  flex: 1;
+  position: relative;
+  background: radial-gradient(circle at center, var(--bg-surface) 0%, var(--bg-canvas) 100%);
+}
+
+/* ══ CHARACTER CARD INFO PANEL ═════════════════════════════════════ */
+.character-panel {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 320px;
+  background: rgba(28, 31, 43, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.character-panel.is-canonical { border-top: 4px solid var(--accent-canonical); }
+.character-panel.is-unknown { border-top: 4px solid var(--accent-unknown); }
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 20px;
+  cursor: pointer;
+}
+.close-btn:hover { color: var(--text-primary); }
+
+.panel-header {
+  padding: 24px 20px 16px;
+  border-bottom: 1px solid var(--border-muted);
+}
+.status-badge {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.is-canonical .status-badge { color: var(--accent-canonical); }
+.is-unknown .status-badge { color: var(--accent-unknown); }
+
+.char-name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--marvel-gold);
+}
+.char-real-name {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+.char-universe {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.panel-body { padding: 20px; }
+.char-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.metric-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.metric-label { font-size: 11px; color: var(--text-secondary); }
+
+.metric-circle-wrapper { position: relative; width: 40px; height: 40px; }
+.metric-bg { fill: none; stroke: var(--border-muted); stroke-width: 3; }
+.metric-fg { 
+  fill: none; 
+  stroke: var(--marvel-red); 
+  stroke-width: 3; 
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset 0.8s ease;
+}
+.metric-val {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.is-unknown .metric-fg { stroke: var(--accent-unknown); }
+
+.appearance-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.app-tag {
+  background: var(--bg-overlay);
+  border: 1px solid var(--border-muted);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+/* Base styles for the minimal Canvas mock */
+.mock-node {
+  position: absolute;
+  width: 12px; height: 12px;
+  background: var(--marvel-gold);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.mock-node:hover { transform: scale(1.5); }
+.mock-node.is-unknown { background: var(--accent-unknown); }
+.mock-edge {
+  position: absolute;
+  background: var(--border-default);
+  transform-origin: left center;
+}

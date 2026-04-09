@@ -1,0 +1,26 @@
+{
+  "uuid": "0a8b9c1d",
+  "canonicalName": "Tony Stark / Iron Man",
+  "aliases": ["Shellhead", "Golden Avenger"],
+  "universe": "Earth-616",
+  "metrics": {
+    "strength": 6,
+    "intelligence": 6,
+    "speed": 5,
+    "durability": 6,
+    "energyProjection": 6,
+    "fightingSkills": 4
+  },
+  "appearances": {
+    "movies": ["Iron Man", "The Avengers"],
+    "series": ["Iron Man: Armored Adventures"],
+    "magazines": ["Tales of Suspense #39", "Iron Man Vol 1"]
+  },
+  "chronologicalFirstAppearance": "1963-03-01",
+  "sources": [
+    {
+      "url": "https://marvel.fandom.com/wiki/Anthony_Stark_(Earth-616)",
+      "provenance": "Marvel Wiki"
+    }
+  ]
+}
