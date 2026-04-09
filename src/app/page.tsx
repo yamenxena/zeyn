@@ -14,16 +14,16 @@ export default function Home() {
         {zeynGraph.nodes.map((node, i) => {
           const angle = (i / zeynGraph.nodes.length) * Math.PI * 2;
           const radius = 250;
-          const top = \`calc(50% + \${Math.sin(angle) * radius}px)\`;
-          const left = \`calc(50% + \${Math.cos(angle) * radius}px)\`;
+          const top = `calc(50% + ${Math.sin(angle) * radius}px)`;
+          const left = `calc(50% + ${Math.cos(angle) * radius}px)`;
           
           return (
             <div 
               key={node.id} 
-              className={\`mock-node \${node.isUnknown ? 'is-unknown' : ''}\`}
+              className={`mock-node ${node.isUnknown ? 'is-unknown' : ''}`}
               style={{ 
                 top, left,
-                backgroundImage: node.imageFallback ? \`url(\${node.imageFallback})\` : 'none',
+                backgroundImage: node.imageFallback ? `url(${node.imageFallback})` : 'none',
                 backgroundSize: 'cover',
                 boxShadow: selectedNode?.id === node.id ? '0 0 0 4px var(--marvel-gold)' : '0 4px 12px rgba(0,0,0,0.5)',
                 width: '40px',
