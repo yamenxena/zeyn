@@ -142,6 +142,10 @@ body {
   will-change: transform;
 }
 
+.world-layer.is-animating {
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 /* ======================== DENDROGRAM SVG ======================== */
 .dendrogram-svg {
   width: 1400px;
@@ -177,9 +181,15 @@ body {
 
 .graph-node.is-selected {
   border-color: var(--marvel-gold);
-  box-shadow: 0 0 40px var(--marvel-gold-glow);
-  transform: scale(1.2);
+  box-shadow: 0 0 50px var(--marvel-gold-glow), 0 0 100px rgba(245, 158, 11, 0.15);
+  transform: scale(1.6);
   z-index: 20;
+  animation: selectedPulse 2s ease-in-out infinite;
+}
+
+@keyframes selectedPulse {
+  0%, 100% { box-shadow: 0 0 50px var(--marvel-gold-glow), 0 0 100px rgba(245, 158, 11, 0.15); }
+  50% { box-shadow: 0 0 60px var(--marvel-gold-glow), 0 0 120px rgba(245, 158, 11, 0.25); }
 }
 
 .graph-node.is-unknown {

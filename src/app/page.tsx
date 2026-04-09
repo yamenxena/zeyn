@@ -104,6 +104,7 @@ export default function Home() {
   // --- Pan / Zoom Engine ---
   const containerRef = useRef<HTMLDivElement>(null);
   const [transform, setTransform] = useState({ x: 0, y: 0, scale: 0.65 });
+  const [isAnimating, setIsAnimating] = useState(false);
   const isDragging = useRef(false);
   const lastMousePos = useRef({ x: 0, y: 0 });
 
@@ -146,8 +147,35 @@ export default function Home() {
     if (containerRef.current) {
       const w = containerRef.current.clientWidth;
       const h = containerRef.current.clientHeight;
+      setIsAnimating(true);
       setTransform({ x: w / 2, y: h / 2, scale: 0.65 });
+      setTimeout(() => setIsAnimating(false), 600);
     }
+  };
+
+  // Zoom-to-node: centers the viewport on a node and zooms in
+  const zoomToNode = (nodeId: string) => {
+    const pos = layout[nodeId];
+    if (!pos || !containerRef.current) return;
+    const w = containerRef.current.clientWidth;
+    const h = containerRef.current.clientHeight;
+    // The SVG viewBox is -700..700 mapped to 1400x1400 CSS px,
+    // so SVG coords map 1:1 to world-layer px (offset by the SVG transform of -700)
+    const worldX = pos.x; // already in world-layer coords (SVG centered at 0,0)
+    const worldY = pos.y;
+    const targetScale = 1.8;
+    // We want: screenCenter = translate + worldCoord * scale
+    // So: translate = screenCenter - worldCoord * scale
+    const newX = w / 2 - worldX * targetScale;
+    const newY = h / 2 - worldY * targetScale;
+    setIsAnimating(true);
+    setTransform({ x: newX, y: newY, scale: targetScale });
+    setTimeout(() => setIsAnimating(false), 600);
+  };
+
+  const handleNodeClick = (node: CharacterCard) => {
+    setSelectedNode(node);
+    zoomToNode(node.id);
   };
 
   useEffect(() => { resetView(); }, []);
@@ -310,7 +338,7 @@ export default function Home() {
               style={{
                 backgroundImage: node.imageFallback ? `url(${node.imageFallback})` : 'none',
               }}
-              onClick={() => setSelectedNode(node)}
+              onClick={() => handleNodeClick(node)}
             />
           </foreignObject>
           {/* Character name label */}
@@ -380,7 +408,7 @@ export default function Home() {
         onPointerLeave={handlePointerUp}
       >
         <div
-          className="world-layer"
+          className={`world-layer ${isAnimating ? 'is-animating' : ''}`}
           style={{ transform: `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale})` }}
         >
           <svg className="dendrogram-svg" viewBox="-700 -700 1400 1400" preserveAspectRatio="xMidYMid meet">
