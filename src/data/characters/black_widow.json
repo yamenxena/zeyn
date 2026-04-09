@@ -1,0 +1,25 @@
+{
+  "id": "black_widow",
+  "name": "Black Widow",
+  "realName": "Natasha Romanoff",
+  "isUnknown": false,
+  "universe": "MCU",
+  "faction": "Avengers",
+  "metrics": {
+    "intelligence": 3,
+    "strength": 3,
+    "speed": 3,
+    "durability": 3,
+    "energyProjection": 1,
+    "fightingSkills": 6
+  },
+  "movies": [
+    "Black Widow",
+    "Avengers"
+  ],
+  "series": [],
+  "magazines": [],
+  "chronologicalDebut": 1964,
+  "description": "Deadly superspy.",
+  "imageFallback": "/images/hero.png"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "kang",
+  "name": "Kang",
+  "realName": "Nathaniel Richards",
+  "isUnknown": false,
+  "universe": "Multiverse",
+  "faction": "None",
+  "metrics": {
+    "intelligence": 6,
+    "strength": 4,
+    "speed": 4,
+    "durability": 5,
+    "energyProjection": 5,
+    "fightingSkills": 4
+  },
+  "movies": [
+    "Quantumania"
+  ],
+  "series": [
+    "Loki"
+  ],
+  "magazines": [],
+  "chronologicalDebut": 1964,
+  "description": "Time conqueror.",
+  "imageFallback": "/images/hero.png"
+}

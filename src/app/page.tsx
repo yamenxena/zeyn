@@ -1,37 +1,39 @@
 "use client";
 import React, { useState } from 'react';
-import { mockMarvelGraph } from '../data/mockData';
+import { zeynGraph } from '../data';
 import CharacterCardPanel from '../components/canvas/CharacterCard';
 import { CharacterCard } from '../types/schema';
 
 export default function Home() {
   const [selectedNode, setSelectedNode] = useState<CharacterCard | null>(null);
 
-  // Simple mock renderer for WebGL/D3 placeholder
+  // Extremely basic radial layout for the 20 nodes for visualization purposes before WebGL is ready
   const renderMockCanvas = () => {
-    // Arbitrary placement for demonstration
-    const positions = [
-      { top: '30%', left: '40%' },
-      { top: '60%', left: '30%' },
-      { top: '45%', left: '60%' },
-      { top: '20%', left: '70%' },
-    ];
-
     return (
       <div className="canvas-area">
-        {mockMarvelGraph.nodes.map((node, i) => (
-          <div 
-            key={node.id} 
-            className={`mock-node ${node.isUnknown ? 'is-unknown' : ''}`}
-            style={{ 
-              top: positions[i].top, 
-              left: positions[i].left,
-              boxShadow: selectedNode?.id === node.id ? '0 0 0 4px rgba(255,255,255,0.2)' : 'none'
-            }}
-            onClick={() => setSelectedNode(node)}
-            title={node.name}
-          />
-        ))}
+        {zeynGraph.nodes.map((node, i) => {
+          const angle = (i / zeynGraph.nodes.length) * Math.PI * 2;
+          const radius = 250;
+          const top = \`calc(50% + \${Math.sin(angle) * radius}px)\`;
+          const left = \`calc(50% + \${Math.cos(angle) * radius}px)\`;
+          
+          return (
+            <div 
+              key={node.id} 
+              className={\`mock-node \${node.isUnknown ? 'is-unknown' : ''}\`}
+              style={{ 
+                top, left,
+                backgroundImage: node.imageFallback ? \`url(\${node.imageFallback})\` : 'none',
+                backgroundSize: 'cover',
+                boxShadow: selectedNode?.id === node.id ? '0 0 0 4px var(--marvel-gold)' : '0 4px 12px rgba(0,0,0,0.5)',
+                width: '40px',
+                height: '40px'
+              }}
+              onClick={() => setSelectedNode(node)}
+              title={node.name}
+            />
+          );
+        })}
       </div>
     );
   };
@@ -42,12 +44,11 @@ export default function Home() {
       <header className="ribbon">
         <div className="ribbon-brand">
           <span className="brand-zeyn">Zeyn</span>
-          <span className="brand-metaverse">Metaverse Intelligence</span>
+          <span className="brand-metaverse">Metaverse Visualization</span>
         </div>
         <div className="ribbon-controls">
           <button className="btn">Sort: Chronological</button>
           <button className="btn">Sort: Power Grid</button>
-          <button className="btn btn-primary">Run Seeker Agent</button>
         </div>
       </header>
       

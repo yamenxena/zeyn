@@ -1,0 +1,25 @@
+{
+  "id": "captain_marvel",
+  "name": "Captain Marvel",
+  "realName": "Carol Danvers",
+  "isUnknown": false,
+  "universe": "MCU",
+  "faction": "Avengers",
+  "metrics": {
+    "intelligence": 3,
+    "strength": 6,
+    "speed": 6,
+    "durability": 6,
+    "energyProjection": 6,
+    "fightingSkills": 4
+  },
+  "movies": [
+    "Captain Marvel",
+    "The Marvels"
+  ],
+  "series": [],
+  "magazines": [],
+  "chronologicalDebut": 1968,
+  "description": "Cosmic powerhouse.",
+  "imageFallback": "/images/hero.png"
+}

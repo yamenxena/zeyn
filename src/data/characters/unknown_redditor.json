@@ -1,0 +1,24 @@
+{
+  "id": "unknown_redditor",
+  "name": "Sylvie Variant?",
+  "realName": "Unknown",
+  "isUnknown": true,
+  "universe": "MCU",
+  "faction": "Unknown",
+  "metrics": {
+    "intelligence": 4,
+    "strength": 3,
+    "speed": 3,
+    "durability": 3,
+    "energyProjection": 4,
+    "fightingSkills": 5
+  },
+  "movies": [],
+  "series": [
+    "Loki Subreddits"
+  ],
+  "magazines": [],
+  "chronologicalDebut": 2026,
+  "description": "Scraped anomaly from community forums.",
+  "imageFallback": "/images/hero.png"
+}

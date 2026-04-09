@@ -1,0 +1,25 @@
+{
+  "id": "thanos",
+  "name": "Thanos",
+  "realName": "Thanos",
+  "isUnknown": false,
+  "universe": "MCU",
+  "faction": "Black Order",
+  "metrics": {
+    "intelligence": 6,
+    "strength": 7,
+    "speed": 3,
+    "durability": 7,
+    "energyProjection": 6,
+    "fightingSkills": 7
+  },
+  "movies": [
+    "Infinity War",
+    "Endgame"
+  ],
+  "series": [],
+  "magazines": [],
+  "chronologicalDebut": 1973,
+  "description": "The Mad Titan.",
+  "imageFallback": "/images/hero.png"
+}

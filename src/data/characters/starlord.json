@@ -1,0 +1,24 @@
+{
+  "id": "starlord",
+  "name": "Star-Lord",
+  "realName": "Peter Quill",
+  "isUnknown": false,
+  "universe": "MCU",
+  "faction": "Guardians",
+  "metrics": {
+    "intelligence": 3,
+    "strength": 3,
+    "speed": 3,
+    "durability": 3,
+    "energyProjection": 4,
+    "fightingSkills": 4
+  },
+  "movies": [
+    "Guardians of the Galaxy"
+  ],
+  "series": [],
+  "magazines": [],
+  "chronologicalDebut": 1976,
+  "description": "Legendary outlaw.",
+  "imageFallback": "/images/hero.png"
+}

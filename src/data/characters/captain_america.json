@@ -1,0 +1,25 @@
+{
+  "id": "captain_america",
+  "name": "Captain America",
+  "realName": "Steve Rogers",
+  "isUnknown": false,
+  "universe": "MCU",
+  "faction": "Avengers",
+  "metrics": {
+    "intelligence": 3,
+    "strength": 4,
+    "speed": 3,
+    "durability": 4,
+    "energyProjection": 1,
+    "fightingSkills": 6
+  },
+  "movies": [
+    "Captain America",
+    "Avengers"
+  ],
+  "series": [],
+  "magazines": [],
+  "chronologicalDebut": 1941,
+  "description": "The First Avenger.",
+  "imageFallback": "/images/hero.png"
+}

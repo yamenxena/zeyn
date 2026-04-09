@@ -1,0 +1,25 @@
+{
+  "id": "spider_man",
+  "name": "Spider-Man",
+  "realName": "Peter Parker",
+  "isUnknown": false,
+  "universe": "MCU",
+  "faction": "Avengers",
+  "metrics": {
+    "intelligence": 4,
+    "strength": 5,
+    "speed": 5,
+    "durability": 4,
+    "energyProjection": 2,
+    "fightingSkills": 4
+  },
+  "movies": [
+    "Homecoming",
+    "No Way Home"
+  ],
+  "series": [],
+  "magazines": [],
+  "chronologicalDebut": 1962,
+  "description": "Friendly neighborhood hero.",
+  "imageFallback": "/images/hero.png"
+}

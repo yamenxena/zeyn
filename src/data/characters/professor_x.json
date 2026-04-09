@@ -1,0 +1,24 @@
+{
+  "id": "professor_x",
+  "name": "Professor X",
+  "realName": "Charles Xavier",
+  "isUnknown": false,
+  "universe": "X-Men",
+  "faction": "X-Men",
+  "metrics": {
+    "intelligence": 6,
+    "strength": 2,
+    "speed": 2,
+    "durability": 2,
+    "energyProjection": 6,
+    "fightingSkills": 2
+  },
+  "movies": [
+    "X-Men"
+  ],
+  "series": [],
+  "magazines": [],
+  "chronologicalDebut": 1963,
+  "description": "Powerful telepath.",
+  "imageFallback": "/images/hero.png"
+}

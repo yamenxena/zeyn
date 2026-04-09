@@ -1,0 +1,25 @@
+{
+  "id": "doctor_strange",
+  "name": "Doctor Strange",
+  "realName": "Stephen Strange",
+  "isUnknown": false,
+  "universe": "MCU",
+  "faction": "Avengers",
+  "metrics": {
+    "intelligence": 4,
+    "strength": 3,
+    "speed": 4,
+    "durability": 3,
+    "energyProjection": 6,
+    "fightingSkills": 4
+  },
+  "movies": [
+    "Doctor Strange",
+    "Multiverse of Madness"
+  ],
+  "series": [],
+  "magazines": [],
+  "chronologicalDebut": 1963,
+  "description": "Master of the Mystic Arts.",
+  "imageFallback": "/images/hero.png"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "black_panther",
+  "name": "Black Panther",
+  "realName": "T'Challa",
+  "isUnknown": false,
+  "universe": "MCU",
+  "faction": "Avengers",
+  "metrics": {
+    "intelligence": 5,
+    "strength": 4,
+    "speed": 4,
+    "durability": 4,
+    "energyProjection": 3,
+    "fightingSkills": 5
+  },
+  "movies": [
+    "Black Panther"
+  ],
+  "series": [],
+  "magazines": [],
+  "chronologicalDebut": 1966,
+  "description": "King of Wakanda.",
+  "imageFallback": "/images/hero.png"
+}

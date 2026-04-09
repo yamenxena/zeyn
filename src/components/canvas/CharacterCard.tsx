@@ -41,12 +41,17 @@ export default function CharacterCardPanel({ data, onClose }: Props) {
       <button className="close-btn" onClick={onClose}>×</button>
       
       <div className="panel-header">
-        <div className="status-badge">
-          {data.isUnknown ? 'UNKNOWN ENTITY' : 'CANONICAL'}
+        {data.imageFallback && (
+          <img src={data.imageFallback} alt={data.name} className="char-portrait" />
+        )}
+        <div className="panel-header-text">
+          <div className="status-badge">
+            {data.isUnknown ? 'UNKNOWN ENTITY' : 'CANONICAL'}
+          </div>
+          <h2 className="char-name">{data.name}</h2>
+          <h4 className="char-real-name">{data.realName}</h4>
+          <div className="char-universe">{data.universe} &middot; {data.faction}</div>
         </div>
-        <h2 className="char-name">{data.name}</h2>
-        <h4 className="char-real-name">{data.realName}</h4>
-        <div className="char-universe">{data.universe} &middot; {data.faction}</div>
       </div>
       
       <div className="panel-body">

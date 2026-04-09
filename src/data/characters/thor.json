@@ -1,0 +1,25 @@
+{
+  "id": "thor",
+  "name": "Thor",
+  "realName": "Thor Odinson",
+  "isUnknown": false,
+  "universe": "MCU",
+  "faction": "Avengers",
+  "metrics": {
+    "intelligence": 2,
+    "strength": 7,
+    "speed": 6,
+    "durability": 6,
+    "energyProjection": 6,
+    "fightingSkills": 4
+  },
+  "movies": [
+    "Thor",
+    "Ragnarok"
+  ],
+  "series": [],
+  "magazines": [],
+  "chronologicalDebut": 1962,
+  "description": "God of Thunder.",
+  "imageFallback": "/images/hero.png"
+}

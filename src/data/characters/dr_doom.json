@@ -1,0 +1,24 @@
+{
+  "id": "dr_doom",
+  "name": "Doctor Doom",
+  "realName": "Victor Von Doom",
+  "isUnknown": false,
+  "universe": "Earth-616",
+  "faction": "None",
+  "metrics": {
+    "intelligence": 6,
+    "strength": 4,
+    "speed": 3,
+    "durability": 6,
+    "energyProjection": 6,
+    "fightingSkills": 4
+  },
+  "movies": [
+    "Fantastic Four"
+  ],
+  "series": [],
+  "magazines": [],
+  "chronologicalDebut": 1962,
+  "description": "Ruler of Latveria.",
+  "imageFallback": "/images/hero.png"
+}

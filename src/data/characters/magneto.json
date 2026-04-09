@@ -1,0 +1,24 @@
+{
+  "id": "magneto",
+  "name": "Magneto",
+  "realName": "Erik Lehnsherr",
+  "isUnknown": false,
+  "universe": "X-Men",
+  "faction": "Brotherhood",
+  "metrics": {
+    "intelligence": 5,
+    "strength": 3,
+    "speed": 4,
+    "durability": 4,
+    "energyProjection": 6,
+    "fightingSkills": 4
+  },
+  "movies": [
+    "X-Men"
+  ],
+  "series": [],
+  "magazines": [],
+  "chronologicalDebut": 1963,
+  "description": "Master of Magnetism.",
+  "imageFallback": "/images/hero.png"
+}

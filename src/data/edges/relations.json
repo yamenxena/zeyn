@@ -1,0 +1,65 @@
+[
+  {
+    "id": "e1",
+    "source": "iron_man",
+    "target": "captain_america",
+    "relationType": "ally",
+    "weight": 0.9
+  },
+  {
+    "id": "e2",
+    "source": "iron_man",
+    "target": "thanos",
+    "relationType": "enemy",
+    "weight": 1
+  },
+  {
+    "id": "e3",
+    "source": "thor",
+    "target": "hulk",
+    "relationType": "ally",
+    "weight": 0.8
+  },
+  {
+    "id": "e4",
+    "source": "wolverine",
+    "target": "professor_x",
+    "relationType": "ally",
+    "weight": 0.85
+  },
+  {
+    "id": "e5",
+    "source": "professor_x",
+    "target": "magneto",
+    "relationType": "enemy",
+    "weight": 0.95
+  },
+  {
+    "id": "e6",
+    "source": "doctor_strange",
+    "target": "scarlet_witch",
+    "relationType": "enemy",
+    "weight": 0.9
+  },
+  {
+    "id": "e7",
+    "source": "spider_man",
+    "target": "iron_man",
+    "relationType": "ally",
+    "weight": 0.8
+  },
+  {
+    "id": "e8",
+    "source": "thanos",
+    "target": "captain_america",
+    "relationType": "enemy",
+    "weight": 1
+  },
+  {
+    "id": "e9",
+    "source": "unknown_redditor",
+    "target": "kang",
+    "relationType": "enemy",
+    "weight": 0.5
+  }
+]

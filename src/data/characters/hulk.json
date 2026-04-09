@@ -1,0 +1,25 @@
+{
+  "id": "hulk",
+  "name": "Hulk",
+  "realName": "Bruce Banner",
+  "isUnknown": false,
+  "universe": "MCU",
+  "faction": "Avengers",
+  "metrics": {
+    "intelligence": 6,
+    "strength": 7,
+    "speed": 4,
+    "durability": 7,
+    "energyProjection": 1,
+    "fightingSkills": 4
+  },
+  "movies": [
+    "The Incredible Hulk",
+    "Avengers"
+  ],
+  "series": [],
+  "magazines": [],
+  "chronologicalDebut": 1962,
+  "description": "Green smashing machine.",
+  "imageFallback": "/images/hero.png"
+}

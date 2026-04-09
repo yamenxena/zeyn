@@ -1,0 +1,25 @@
+{
+  "id": "iron_man",
+  "name": "Iron Man",
+  "realName": "Tony Stark",
+  "isUnknown": false,
+  "universe": "MCU",
+  "faction": "Avengers",
+  "metrics": {
+    "intelligence": 6,
+    "strength": 6,
+    "speed": 5,
+    "durability": 6,
+    "energyProjection": 6,
+    "fightingSkills": 4
+  },
+  "movies": [
+    "Iron Man",
+    "Avengers: Endgame"
+  ],
+  "series": [],
+  "magazines": [],
+  "chronologicalDebut": 1963,
+  "description": "Genius, billionaire, playboy, philanthropist.",
+  "imageFallback": "/images/hero.png"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "vision",
+  "name": "Vision",
+  "realName": "Vision",
+  "isUnknown": false,
+  "universe": "MCU",
+  "faction": "Avengers",
+  "metrics": {
+    "intelligence": 5,
+    "strength": 5,
+    "speed": 4,
+    "durability": 6,
+    "energyProjection": 6,
+    "fightingSkills": 3
+  },
+  "movies": [
+    "Age of Ultron"
+  ],
+  "series": [
+    "WandaVision"
+  ],
+  "magazines": [],
+  "chronologicalDebut": 1968,
+  "description": "Synthezoid.",
+  "imageFallback": "/images/hero.png"
+}

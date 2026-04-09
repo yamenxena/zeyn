@@ -1,0 +1,26 @@
+{
+  "id": "hawkeye",
+  "name": "Hawkeye",
+  "realName": "Clint Barton",
+  "isUnknown": false,
+  "universe": "MCU",
+  "faction": "Avengers",
+  "metrics": {
+    "intelligence": 3,
+    "strength": 3,
+    "speed": 3,
+    "durability": 3,
+    "energyProjection": 1,
+    "fightingSkills": 6
+  },
+  "movies": [
+    "Avengers"
+  ],
+  "series": [
+    "Hawkeye"
+  ],
+  "magazines": [],
+  "chronologicalDebut": 1964,
+  "description": "Master archer.",
+  "imageFallback": "/images/hero.png"
+}

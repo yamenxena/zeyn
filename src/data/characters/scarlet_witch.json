@@ -1,0 +1,27 @@
+{
+  "id": "scarlet_witch",
+  "name": "Scarlet Witch",
+  "realName": "Wanda Maximoff",
+  "isUnknown": false,
+  "universe": "MCU",
+  "faction": "Avengers",
+  "metrics": {
+    "intelligence": 3,
+    "strength": 3,
+    "speed": 3,
+    "durability": 3,
+    "energyProjection": 7,
+    "fightingSkills": 3
+  },
+  "movies": [
+    "Age of Ultron",
+    "Multiverse of Madness"
+  ],
+  "series": [
+    "WandaVision"
+  ],
+  "magazines": [],
+  "chronologicalDebut": 1964,
+  "description": "Chaos magic wielder.",
+  "imageFallback": "/images/hero.png"
+}

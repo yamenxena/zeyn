@@ -1,0 +1,25 @@
+{
+  "id": "wolverine",
+  "name": "Wolverine",
+  "realName": "Logan",
+  "isUnknown": false,
+  "universe": "X-Men",
+  "faction": "X-Men",
+  "metrics": {
+    "intelligence": 2,
+    "strength": 4,
+    "speed": 3,
+    "durability": 6,
+    "energyProjection": 1,
+    "fightingSkills": 7
+  },
+  "movies": [
+    "X-Men",
+    "Logan"
+  ],
+  "series": [],
+  "magazines": [],
+  "chronologicalDebut": 1974,
+  "description": "Adamantium claws.",
+  "imageFallback": "/images/hero.png"
+}
