@@ -1,7 +1,6 @@
 "use client";
 import React from 'react';
 import { CharacterCard as CardType } from '../../types/schema';
-import './style.css'; // specific styles if needed, or rely on globals
 
 type Props = {
   data: CardType | null;
