@@ -1,65 +1,32 @@
 [
-  {
-    "id": "e1",
-    "source": "iron_man",
-    "target": "captain_america",
-    "relationType": "ally",
-    "weight": 0.9
-  },
-  {
-    "id": "e2",
-    "source": "iron_man",
-    "target": "thanos",
-    "relationType": "enemy",
-    "weight": 1
-  },
-  {
-    "id": "e3",
-    "source": "thor",
-    "target": "hulk",
-    "relationType": "ally",
-    "weight": 0.8
-  },
-  {
-    "id": "e4",
-    "source": "wolverine",
-    "target": "professor_x",
-    "relationType": "ally",
-    "weight": 0.85
-  },
-  {
-    "id": "e5",
-    "source": "professor_x",
-    "target": "magneto",
-    "relationType": "enemy",
-    "weight": 0.95
-  },
-  {
-    "id": "e6",
-    "source": "doctor_strange",
-    "target": "scarlet_witch",
-    "relationType": "enemy",
-    "weight": 0.9
-  },
-  {
-    "id": "e7",
-    "source": "spider_man",
-    "target": "iron_man",
-    "relationType": "ally",
-    "weight": 0.8
-  },
-  {
-    "id": "e8",
-    "source": "thanos",
-    "target": "captain_america",
-    "relationType": "enemy",
-    "weight": 1
-  },
-  {
-    "id": "e9",
-    "source": "unknown_redditor",
-    "target": "kang",
-    "relationType": "enemy",
-    "weight": 0.5
-  }
+  { "id": "e1", "source": "iron_man", "target": "captain_america", "relationType": "ally", "weight": 0.9 },
+  { "id": "e2", "source": "iron_man", "target": "thanos", "relationType": "enemy", "weight": 1.0 },
+  { "id": "e3", "source": "iron_man", "target": "spider_man", "relationType": "ally", "weight": 0.85 },
+  { "id": "e4", "source": "iron_man", "target": "hulk", "relationType": "ally", "weight": 0.7 },
+  { "id": "e5", "source": "iron_man", "target": "doctor_strange", "relationType": "ally", "weight": 0.6 },
+  { "id": "e6", "source": "thor", "target": "hulk", "relationType": "ally", "weight": 0.8 },
+  { "id": "e7", "source": "thor", "target": "thanos", "relationType": "enemy", "weight": 0.95 },
+  { "id": "e8", "source": "thor", "target": "captain_america", "relationType": "ally", "weight": 0.75 },
+  { "id": "e9", "source": "captain_america", "target": "thanos", "relationType": "enemy", "weight": 1.0 },
+  { "id": "e10", "source": "captain_america", "target": "black_widow", "relationType": "ally", "weight": 0.85 },
+  { "id": "e11", "source": "black_widow", "target": "hawkeye", "relationType": "ally", "weight": 0.95 },
+  { "id": "e12", "source": "scarlet_witch", "target": "vision", "relationType": "ally", "weight": 1.0 },
+  { "id": "e13", "source": "scarlet_witch", "target": "doctor_strange", "relationType": "enemy", "weight": 0.85 },
+  { "id": "e14", "source": "wolverine", "target": "professor_x", "relationType": "ally", "weight": 0.9 },
+  { "id": "e15", "source": "professor_x", "target": "magneto", "relationType": "enemy", "weight": 0.95 },
+  { "id": "e16", "source": "wolverine", "target": "magneto", "relationType": "enemy", "weight": 0.8 },
+  { "id": "e17", "source": "black_panther", "target": "captain_america", "relationType": "ally", "weight": 0.7 },
+  { "id": "e18", "source": "captain_marvel", "target": "thanos", "relationType": "enemy", "weight": 0.8 },
+  { "id": "e19", "source": "starlord", "target": "thanos", "relationType": "enemy", "weight": 0.75 },
+  { "id": "e20", "source": "starlord", "target": "thor", "relationType": "ally", "weight": 0.5 },
+  { "id": "e21", "source": "kang", "target": "unknown_redditor", "relationType": "enemy", "weight": 0.5 },
+  { "id": "e22", "source": "dr_doom", "target": "iron_man", "relationType": "enemy", "weight": 0.7 },
+  { "id": "e23", "source": "dr_doom", "target": "doctor_strange", "relationType": "enemy", "weight": 0.65 },
+  { "id": "e24", "source": "spider_man", "target": "captain_america", "relationType": "ally", "weight": 0.6 },
+  { "id": "e25", "source": "hulk", "target": "black_widow", "relationType": "ally", "weight": 0.6 },
+  { "id": "e26", "source": "vision", "target": "iron_man", "relationType": "ally", "weight": 0.7 },
+  { "id": "e27", "source": "captain_marvel", "target": "black_widow", "relationType": "ally", "weight": 0.4 },
+  { "id": "e28", "source": "hawkeye", "target": "scarlet_witch", "relationType": "ally", "weight": 0.55 },
+  { "id": "e29", "source": "black_panther", "target": "iron_man", "relationType": "ally", "weight": 0.6 },
+  { "id": "e30", "source": "kang", "target": "thor", "relationType": "enemy", "weight": 0.6 }
 ]
