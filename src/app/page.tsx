@@ -109,6 +109,8 @@ export default function Home() {
   const lastMousePos = useRef({ x: 0, y: 0 });
 
   const handleWheel = (e: React.WheelEvent) => {
+    // If scrolling inside the character panel, let it scroll naturally
+    if ((e.target as HTMLElement).closest('.character-panel')) return;
     e.preventDefault();
     e.stopPropagation();
     const scaleAdjust = e.deltaY > 0 ? 0.92 : 1.08;
@@ -341,16 +343,14 @@ export default function Home() {
               onClick={() => handleNodeClick(node)}
             />
           </foreignObject>
-          {/* Character name label */}
+          {/* Character name label — pushed further out to avoid overlap */}
           <text
-            x={Math.cos(pos.angle) * (pos.radius + 50)}
-            y={Math.sin(pos.angle) * (pos.radius + 50)}
-            fill="rgba(255,255,255,0.8)"
-            fontSize="11"
-            fontWeight="500"
+            x={Math.cos(pos.angle) * (pos.radius + 75)}
+            y={Math.sin(pos.angle) * (pos.radius + 75)}
+            className="node-label"
             textAnchor={flipLabel ? 'end' : 'start'}
             dominantBaseline="middle"
-            transform={`rotate(${flipLabel ? labelAngleDeg + 180 : labelAngleDeg}, ${Math.cos(pos.angle) * (pos.radius + 50)}, ${Math.sin(pos.angle) * (pos.radius + 50)})`}
+            transform={`rotate(${flipLabel ? labelAngleDeg + 180 : labelAngleDeg}, ${Math.cos(pos.angle) * (pos.radius + 75)}, ${Math.sin(pos.angle) * (pos.radius + 75)})`}
             style={{ pointerEvents: 'none' }}
           >
             {node.name}
